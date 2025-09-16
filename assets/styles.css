@@ -232,3 +232,51 @@ header .nav-link:hover::after{ opacity:1; transform:scaleX(1) }
 /* Hover green for 'Living Soil' only */
 .hover-green{ transition: color .2s ease; }
 .hover-green:hover{ color:#10b981 !important; }
+
+/* === READABILITY HOTFIX v9 === */
+:root{
+  --surface-light:#f3f4f6;      /* helles Grau */
+  --surface-light-90:#f3f4f6e6; /* transluzent für Header */
+  --ink-dark:#ffffff;           /* Text auf dunkel */
+  --ink-on-light:#0f172a;       /* Text auf hell */
+}
+
+/* Standard: auf dunklem Content bleibt Text hell */
+body, main, section, footer { color: var(--ink-dark) !important; }
+h1, h2, h3, h4, h5, h6 { color:#fff !important; }
+p, li { color:#e6e8ee !important; }
+a { color:#ffffff !important; text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+/* Auf HELLEN Flächen: Text wird dunkel */
+.bg-white, .bg-white\/90, .surface-light {
+  background-color: var(--surface-light) !important;
+  color: var(--ink-on-light) !important;
+}
+.bg-white a, .bg-white\/90 a, .surface-light a { color: var(--ink-on-light) !important; }
+.bg-white .btn, .bg-white\/90 .btn, .surface-light .btn { color:#17181c !important; }
+.bg-white .lead, .bg-white\/90 .lead, .surface-light .lead { color:#334155 !important; }
+
+/* Header überall gleich (Shop inkl.) */
+header.sticky{
+  position: sticky; top:0; z-index:40;
+  background: var(--surface-light-90) !important;
+  color:#17181c !important; border-bottom:1px solid #e5e7eb;
+  -webkit-backdrop-filter:saturate(180%) blur(8px); backdrop-filter:saturate(180%) blur(8px);
+}
+header a, header .nav-link { color:#17181c !important; }
+header .nav-link::after{ content:''; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:#17181c; opacity:0; transform:scaleX(.6); transition:opacity .2s, transform .2s; }
+header .nav-link:hover::after{ opacity:1; transform:scaleX(1); }
+@media (max-width: 767px){ header .md\:hidden a { color:#17181c !important; } }
+
+/* Karten/Inputs bleiben dark (guter Kontrast) */
+.card{ background:#1d1f24; border:1px solid #2a2d34; }
+input, textarea{ background:#111318; color:#fff; border:1px solid #2a2d34; }
+input::placeholder, textarea::placeholder{ color:#94a3b8; }
+
+/* Mehr Seitenrand */
+.container-tight{ max-width:1200px; padding-left:clamp(16px,5vw,56px); padding-right:clamp(16px,5vw,56px); }
+
+/* Typewriter + Hover-Grün (nur "Living Soil") */
+.hover-green{ transition:color .2s ease; }
+.hover-green:hover{ color:#10b981 !important; }
