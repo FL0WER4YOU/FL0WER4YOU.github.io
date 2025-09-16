@@ -280,3 +280,33 @@ input::placeholder, textarea::placeholder{ color:#94a3b8; }
 /* Typewriter + Hover-Grün (nur "Living Soil") */
 .hover-green{ transition:color .2s ease; }
 .hover-green:hover{ color:#10b981 !important; }
+
+/* === READABILITY HOTFIX v10 (no pure white text) === */
+:root{
+  --surface-light:#f3f4f6;
+  --surface-light-90:#f3f4f6e6;
+  --ink-dark:#e6e8ee;     /* soft light ink on dark */
+  --ink-on-light:#0b1220; /* strong dark ink on light */
+}
+/* Default text on dark content */
+body, main, section, footer { color: var(--ink-dark) !important; }
+h1, h2, h3, h4, h5, h6 { color:#f3f5f9 !important; } /* softer than pure white */
+p, li { color:#e0e3ea !important; }
+/* Links inherit context */
+a { color: inherit !important; text-decoration: none; }
+a:hover { text-decoration: underline; }
+/* Light surfaces force dark ink */
+.bg-white, .bg-white\/90, .surface-light, header.sticky {
+  color: var(--ink-on-light) !important;
+}
+header.sticky a, header.sticky .nav-link { color: var(--ink-on-light) !important; }
+header.sticky .nav-link::after{ background: var(--ink-on-light); }
+/* Buttons */
+.btn-light{ background: var(--surface-light); color: var(--ink-on-light) !important; border-color:#e5e7eb }
+.btn-light:hover{ background:#eaecef }
+/* Form elements */
+input, textarea{ background:#111318; color: var(--ink-dark); border:1px solid #2a2d34; }
+input::placeholder, textarea::placeholder{ color:#9aa8bc }
+/* Hero hover stays green */
+.hover-green{ transition: color .2s ease; }
+.hover-green:hover{ color:#10b981 !important; }
