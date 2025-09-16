@@ -5,56 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Prannabis – Home</title>
   <meta name="description" content="Prannabis Club Germany – Living Soil Indoor.">
-  <link rel="stylesheet" href="assets/styles.css?v=12">
+  <link rel="stylesheet" href="/assets/styles.css?v=13">
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <script defer src="assets/app.js?v=6"></script>
+  <script defer src="/assets/app.js?v=7"></script>
 </head>
 <body>
-  
-<header class="sticky" x-data="{open:false, cart:false}" x-init="$watch('cart', v => document.documentElement.classList.toggle('cart-open', v))">
-  <div class="container-tight">
-    <a href="index.html" class="brand"><img src="assets/images/logo-prannabis.png" alt="Prannabis"><span class="brand-name">Prannabis Club Germany</span></a>
-    <nav class="nav">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link" href="shop.html">Club‑Shop</a>
-      <a class="nav-link" href="philosophie.html">Philosophie</a>
-      <a class="nav-link" href="faq.html">FAQ</a>
-      <a class="nav-link" href="kontakt.html">Kontakt</a>
-      <button class="btn-cart" @click.prevent="cart=true" aria-haspopup="dialog" aria-controls="cart-drawer">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l3-8H6.4M7 13L5.4 5M7 13l-2 9m12-9l2 9M10 21a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z"/></svg>
-        <span>Warenkorb</span>
-        <span class="badge" x-text="(window.cartCount||0)">0</span>
-      </button>
-    </nav>
-  </div>
-</header>
+  <header class="sticky" x-data="{open:false, cart:false}" x-init="$watch('cart', v => document.documentElement.classList.toggle('cart-open', v))">
+    <div class="container-tight">
+      <a href="/index.html" class="brand"><img src="/assets/images/logo-prannabis.png" alt="Prannabis"><span class="brand-name">Prannabis Club Germany</span></a>
+      <nav class="nav">
+        <a class="nav-link" href="/index.html">Home</a>
+        <a class="nav-link" href="/shop.html">Club‑Shop</a>
+        <a class="nav-link" href="/philosophie.html">Philosophie</a>
+        <a class="nav-link" href="/faq.html">FAQ</a>
+        <a class="nav-link" href="/kontakt.html">Kontakt</a>
+        <button class="btn-cart" @click.prevent="cart=true" aria-haspopup="dialog" aria-controls="cart-drawer">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h2l2 12h11l2-8H6" /></svg>
+          <span>Warenkorb</span>
+          <span class="badge"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
 
-<!-- Cart Drawer -->
-<template x-if="cart">
-  <div>
-    <div class="cart-backdrop" @click="cart=false" aria-hidden="true"></div>
-    <aside id="cart-drawer" class="cart-panel" role="dialog" aria-modal="true" aria-label="Warenkorb" @keydown.escape.window="cart=false" x-trap.noscroll="cart">
-      <div class="cart-header">
-        <div style="display:flex;gap:8px;align-items:center"><strong>Warenkorb</strong><span class="badge" x-text="(window.cartCount||0)">0</span></div>
-        <button class="btn-cart" @click="cart=false" aria-label="Schließen">Schließen</button>
-      </div>
-      <div class="cart-body">
-        <p class="cart-empty">Dein Warenkorb ist aktuell leer.</p>
-      </div>
-      <div class="cart-footer">
-        <button class="btn" style="background:#10b981;border-color:#10b981;color:#0b1220" disabled>Zur Kasse (bald)</button>
-      </div>
-    </aside>
-  </div>
-</template>
+  <template x-if="cart">
+    <div>
+      <div class="cart-backdrop" @click="cart=false" aria-hidden="true"></div>
+      <aside id="cart-drawer" class="cart-panel" role="dialog" aria-modal="true" aria-label="Warenkorb" @keydown.escape.window="cart=false" x-trap.noscroll="cart">
+        <div class="cart-header">
+          <div style="display:flex;gap:8px;align-items:center"><strong>Warenkorb</strong><span class="badge"></span></div>
+          <button class="btn-cart" @click="cart=false" aria-label="Schließen">Schließen</button>
+        </div>
+        <div class="cart-body">
+          <p class="cart-empty">Dein Warenkorb ist aktuell leer.</p>
+        </div>
+        <div class="cart-footer">
+          <button class="btn" style="background:#10b981;border-color:#10b981;color:#0b1220" disabled>Zur Kasse (bald)</button>
+        </div>
+      </aside>
+    </div>
+  </template>
 
   
 <main class="container-tight" style="padding:64px 0">
   <h1 class="hero-title"><span id="typewriter"></span><br><span class="hero-accent"><span class="hover-green">Living Soil</span> Indoor.</span></h1>
   <p class="lead" style="max-width:720px;margin-top:14px">Seit 2022 bauen wir auf dauerhaft aktivem Living Soil an. Familiengeführt, keine Massenware, keine Tricks – nur ehrliche Handarbeit vom Steckling bis zum Trim.</p>
   <div style="display:flex;gap:12px;margin-top:16px">
-    <a href="shop.html" class="btn">Zum Club‑Shop</a>
-    <a href="philosophie.html" class="btn-light">Unsere Philosophie</a>
+    <a href="/shop.html" class="btn">Zum Club‑Shop</a>
+    <a href="/philosophie.html" class="btn-light">Unsere Philosophie</a>
   </div>
   <section style="margin-top:48px" class="grid grid-cols-3">
     <article class="card"><h3>CBD Blüte – Indoor A</h3><p class="lead">Kleine Charge, handgetrimmt.</p></article>
