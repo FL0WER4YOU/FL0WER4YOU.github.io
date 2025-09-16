@@ -1,0 +1,197 @@
+/* ===== Prannabis: Shared styles (refreshed) ===== */
+:root{
+  --ink-header: #17181c;
+  --brand: #17181c; /* emerald-600 */
+  --ink: #0f172a;   /* slate-900 */
+  --muted: #64748b; /* slate-500 */
+}
+
+/* Layout: give more left/right space responsively */
+.container-tight {
+  max-width: 1140px;
+  padding-left: clamp(16px, 5vw, 56px);
+  padding-right: clamp(16px, 5vw, 56px);
+}
+
+/* Background polish */
+body{
+  background:
+    radial-gradient(1200px 600px at -10% -20%, rgba(16,185,129,.06), transparent 60%),
+    radial-gradient(900px 500px at 110% -10%, rgba(16,185,129,.04), transparent 55%),
+    linear-gradient(#f8fafc, #ffffff);
+  color: var(--ink);
+}
+
+/* Reveal animation (unchanged) */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Cards */
+article.group{
+  border-radius: 1.25rem; /* ~rounded-2xl */
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
+  will-change: transform;
+  background-color: #fff;
+}
+article.group:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(2,6,23, .08);
+  border-color: #cbd5e1; /* slate-300 */
+}
+
+/* Buttons */
+button{
+  transition: box-shadow .2s ease, transform .2s ease, background-color .2s ease, color .2s ease;
+}
+button:active{ transform: translateY(0.5px); }
+.bg-emerald-700{
+  box-shadow: 0 1px 0 rgba(2,6,23,.02);
+}
+.bg-emerald-700:hover{
+  box-shadow: 0 6px 16px rgba(5,150,105,.22);
+}
+
+/* Focus styles */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(5,150,105,.28);
+  border-color: rgba(5,150,105,.65);
+}
+
+/* Inputs */
+input, textarea{
+  border-radius: 0.75rem; /* rounded-xl */
+}
+
+/* Header nav underline hover */
+header nav a{
+  position: relative;
+}
+header nav a::after{
+  content:'';
+  position:absolute;
+  left:0; right:0; bottom:-6px;
+  height:2px;
+  background: var(--brand);
+  opacity:0; transform: scaleX(.6);
+  transition: opacity .2s ease, transform .2s ease;
+}
+header nav a:hover::after{ opacity:1; transform: scaleX(1); }
+
+/* Section blocks */
+section.bg-slate-50{
+  border-top: 1px solid #e2e8f0; /* slate-200 */
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* === CI override: Primary Dark Grey, Secondary White === */
+:root{
+  --ink-header: #17181c;
+  --brand: #17181c; /* gray-900 */
+  --brand-contrast: #ffffff;
+}
+
+/* Remap previous emerald utility usages to brand */
+.text-emerald-700 { color: var(--brand) !important; }
+.bg-emerald-700 { background-color: var(--brand) !important; color: var(--brand-contrast) !important; }
+.bg-emerald-800 { background-color: #0b1220 !important; color: var(--brand-contrast) !important; } /* darker step */
+.border-emerald-200 { border-color: #e5e7eb !important; } /* light grey */
+.bg-emerald-50 { background-color: #f8fafc !important; } /* near-white */
+
+header nav a::after { background: var(--brand); }
+button.bg-emerald-700:hover { box-shadow: 0 6px 16px rgba(17,24,39,.25) !important; }
+
+/* Links previously using emerald */
+a.text-emerald-700, .text-emerald-800 { color: var(--brand) !important; }
+
+/* Focus ring color tuned to brand */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+  box-shadow: 0 0 0 3px rgba(17,24,39,.28) !important;
+  border-color: rgba(17,24,39,.65) !important;
+}
+
+
+/* === Typography (Manrope as display/body; replace if you supply the exact font) === */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+html, body { font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; }
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.02em; }
+h1 { line-height: 1.05; }
+h2 { line-height: 1.1; }
+h3 { line-height: 1.15; }
+
+
+/* === Dark theme base (requested): header white, rest anthracite, text white === */
+body{
+  background-color: #17181c !important;
+  background-image: none;
+  color: #ffffff !important;
+}
+/* Topbar uses brand (anthracite) with white text */
+div.w-full.bg-slate-900.text-white.text-sm { background-color: #17181c !important; }
+
+/* Header stays white for contrast */
+header.sticky { background-color: #ffffff !important; color: var(--ink-header) !important; }
+header.sticky a { color: var(--ink-header) !important; }
+header.sticky .border-slate-200 { border-color: #e5e7eb !important; }
+header nav a::after { background: var(--ink-header) !important; }
+
+/* Cards on dark background */
+article.group{
+  background-color: #1d1f24 !important;
+  border-color: #2a2d34 !important;
+  color: #ffffff !important;
+}
+article.group:hover{ box-shadow: 0 12px 30px rgba(0,0,0,.3) !important; border-color: #3a3f48 !important; }
+
+/* Inputs on dark */
+input, textarea{
+  background-color: #111318 !important;
+  border-color: #2a2d34 !important;
+  color: #ffffff !important;
+}
+input::placeholder, textarea::placeholder{ color: #94a3b8 !important; }
+
+/* Buttons use brand anthracite */
+.bg-emerald-700 { background-color: #17181c !important; color: #fff !important; }
+.bg-emerald-700:hover { background-color: #0f1216 !important; }
+.bg-emerald-800 { background-color: #0b0c10 !important; }
+
+/* Section separations on dark */
+section.bg-slate-50{ background-color: rgba(255,255,255,.03) !important; border-top: 1px solid rgba(255,255,255,.08) !important; border-bottom: 1px solid rgba(255,255,255,.08) !important; }
+
+/* Footer keep dark but ensure text white */
+footer.bg-slate-900{ background-color: #0f1115 !important; color: #e5e7eb !important; }
+footer a { color: #e5e7eb !important; }
+
+
+/* === Display tweaks === */
+h1{ letter-spacing: -0.03em !important; }
+@media (min-width: 1024px){
+  h1{ font-size: clamp(2.75rem, 5vw, 4.25rem) !important; }
+}
+
+
+/* Force anthracite content and disable previous light hero gradient */
+.topbar { background-color: #17181c !important; }
+.hero-overlay { background: #17181c !important; background-image: none !important; }
+section#home { background-color: #17181c !important; }
+
+/* Ensure all text in main content is white by default; allow header to stay dark text */
+main, section, .container-tight, .reveal, footer, .snipcart-layout, .snipcart__box {
+  color: #ffffff !important;
+}
+h1,h2,h3,h4,h5,h6,p,li,summary { color: #ffffff !important; }
+a { color: #ffffff !important; }
+a:hover { opacity: .9; }
+
+/* Adjust secondary surfaces */
+.bg-white { background-color: #1d1f24 !important; }
+.border-slate-200 { border-color: #2a2d34 !important; }
+.text-slate-600, .text-slate-700, .text-neutral-300 { color: #e5e7eb !important; }
