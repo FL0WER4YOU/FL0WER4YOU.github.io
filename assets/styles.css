@@ -195,3 +195,40 @@ a:hover { opacity: .9; }
 .bg-white { background-color: #1d1f24 !important; }
 .border-slate-200 { border-color: #2a2d34 !important; }
 .text-slate-600, .text-slate-700, .text-neutral-300 { color: #e5e7eb !important; }
+
+
+/* === PATCH: Light Gray surfaces + Consistent Header + Typewriter hooks === */
+:root{
+  --surface-light: #f3f4f6;
+  --surface-light-90: #f3f4f6e6;
+}
+/* Header: light gray translucent with blur (consistent) */
+header.sticky{
+  background: var(--surface-light-90) !important;
+  color:#17181c !important;
+  -webkit-backdrop-filter:saturate(180%) blur(8px);
+  backdrop-filter:saturate(180%) blur(8px);
+  border-bottom:1px solid #e5e7eb;
+}
+/* Mobile dropdown under header also light gray */
+@media (max-width: 767px){
+  header .md\:hidden nav{ background-color: var(--surface-light-90) !important; }
+}
+
+/* Replace white UI surfaces by light gray */
+.btn-light{ background: var(--surface-light); color:#17181c; border-color:#e5e7eb }
+.btn-light:hover{ background:#eaecef }
+.bg-white, .bg-white\/90 { background-color: var(--surface-light) !important; }
+
+/* Nav underline animation (consistent on all pages) */
+header .nav-link{ position:relative; color:#17181c !important; }
+header .nav-link::after{ content:''; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:#17181c; opacity:0; transform:scaleX(.6); transition:opacity .2s ease, transform .2s ease; }
+header .nav-link:hover::after{ opacity:1; transform:scaleX(1) }
+
+/* Lead paragraph readability on dark */
+.lead{ color:#e5e7eb; line-height:1.7; }
+@media (min-width:1024px){ .lead{ font-size:1.125rem } }
+
+/* Hover green for 'Living Soil' only */
+.hover-green{ transition: color .2s ease; }
+.hover-green:hover{ color:#10b981 !important; }
