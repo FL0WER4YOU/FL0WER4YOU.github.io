@@ -58,3 +58,29 @@ html.cart-open{overflow:hidden}
 /* Make header logo match CI (anthrazit) and reveal green on hover */
 .brand img.is-header{ filter: grayscale(1) saturate(0) brightness(0.25) contrast(1.2); transition: filter .2s ease, transform .2s ease; }
 header:hover .brand img.is-header{ filter: none; transform: translateY(-1px); }
+
+/* === v11.5 Mobile header & iOS tweaks === */
+:root{ --safe-top: env(safe-area-inset-top); }
+html, body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+button { -webkit-appearance: none; appearance: none; }
+a, button { touch-action: manipulation; }
+header.sticky{ padding-top: var(--safe-top); }
+header .container-tight{ min-height:56px; }
+.brand img{ height:26px; }
+.only-desktop{ display:flex; }
+.only-mobile{ display:none; }
+
+@media (max-width: 860px){
+  .only-desktop{ display:none !important; }
+  .only-mobile{ display:flex !important; }
+  header .container-tight{ min-height:48px; padding:6px 0; }
+  .brand img{ height:22px; }
+  .mobile-menu{ position: absolute; left:0; right:0; top:100%; background: var(--light90); border-bottom:1px solid #e5e7eb;
+    display:flex; flex-direction:column; gap:4px; padding:10px 16px; z-index:45; }
+  .mobile-link{ padding:10px 8px; border-radius:10px; }
+  .mobile-link:hover{ background:#eceff3; text-decoration:none; }
+  .btn-cart{ padding:.5rem .7rem; }
+}
+
+/* Buttons look consistent on iOS */
+.btn, .btn-light, .btn-cart{ border-radius:.8rem; font-weight:600; }
