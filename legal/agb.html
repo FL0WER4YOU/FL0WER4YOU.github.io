@@ -1,1 +1,59 @@
-﻿
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AGB</title>
+  <meta name="description" content="Prannabis Club Germany – Living Soil Indoor.">
+  <link rel="stylesheet" href="../assets/styles.css?v=11">
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="../assets/app.js?v=5"></script>
+</head>
+<body>
+  
+<header class="sticky" x-data="{open:false, cart:false}" x-init="$watch('cart', v => document.documentElement.classList.toggle('cart-open', v))">
+  <div class="container-tight" style="display:flex;align-items:center;justify-content:space-between;padding:16px 0">
+    <a href="../index.html" style="display:flex;gap:8px;align-items:center;color:#0b1220">
+      <span style="font-size:22px">🫱🏻‍🫲🏽</span>
+      <strong style="font-size:18px">Prannabis Club Germany</strong>
+    </a>
+    <nav class="nav" style="display:flex;gap:20px;align-items:center">
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="../shop.html">Club‑Shop</a>
+      <a class="nav-link" href="../philosophie.html">Philosophie</a>
+      <a class="nav-link" href="../faq.html">FAQ</a>
+      <a class="nav-link" href="../kontakt.html">Kontakt</a>
+      <button class="btn-cart" @click.prevent="cart=true" aria-haspopup="dialog" aria-controls="cart-drawer">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l3-8H6.4M7 13L5.4 5M7 13l-2 9m12-9l2 9M10 21a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z"/></svg>
+        <span>Warenkorb</span><span class="badge" x-text="(window.cartCount||0)"></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<template x-if="cart">
+  <div>
+    <div class="cart-backdrop" @click="cart=false" aria-hidden="true"></div>
+    <aside id="cart-drawer" class="cart-panel" role="dialog" aria-modal="true" aria-label="Warenkorb" @keydown.escape.window="cart=false" x-trap.noscroll="cart">
+      <div class="cart-header">
+        <div style="display:flex;gap:8px;align-items:center"><strong>Warenkorb</strong><span class="badge" x-text="(window.cartCount||0)"></span></div>
+        <button class="btn-cart" @click="cart=false" aria-label="Schließen">Schließen</button>
+      </div>
+      <div class="cart-body">
+        <p class="cart-empty">Dein Warenkorb ist aktuell leer.</p>
+      </div>
+      <div class="cart-footer">
+        <button class="btn" style="background:#10b981;border-color:#10b981;color:#0b1220" disabled>Zur Kasse (bald)</button>
+      </div>
+    </aside>
+  </div>
+</template>
+
+  
+<main class="container-tight" style="padding:64px 0">
+  <h1 style="font-size:36px;font-weight:800">AGB</h1>
+  <p class="lead" style="max-width:720px;margin-top:14px">Diese Seite nutzt den gleichen Header & Warenkorb‑Drawer. Platzhalter-Inhalt.</p>
+</main>
+
+</body>
+</html>
