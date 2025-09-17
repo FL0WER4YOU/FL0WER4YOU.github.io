@@ -124,3 +124,12 @@ header .container-tight { width:100%; overflow-x:hidden; }
 /* Images/SVGs never exceed container */
 img, svg { max-width:100%; height:auto }
 .btn, .btn-light, .btn-cart { -webkit-appearance:none; appearance:none } /* iOS buttons */
+
+/* === v11.8: larger brand logo and header === */
+header .container-tight{ min-height:72px; padding-top:10px; padding-bottom:10px }
+.brand{ gap:14px }
+.brand img{ height:44px; width:auto; image-rendering:-webkit-optimize-contrast }
+@media (max-width:860px){
+  header .container-tight{ min-height:60px }
+  .brand img{ height:34px }
+}
