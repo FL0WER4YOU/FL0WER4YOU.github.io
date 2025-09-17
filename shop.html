@@ -8,23 +8,42 @@
   <link rel="stylesheet" href="assets/styles.css?v=11">
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script defer src="assets/app.js?v=5"></script>
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+<link rel="icon" sizes="16x16" href="assets/img/favicon-16.png">
+<link rel="icon" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" sizes="48x48" href="assets/img/favicon-48.png">
+<link rel="icon" sizes="64x64" href="assets/img/favicon-64.png">
+<link rel="icon" sizes="96x96" href="assets/img/favicon-96.png">
+<link rel="icon" sizes="128x128" href="assets/img/favicon-128.png">
+<link rel="icon" sizes="180x180" href="assets/img/favicon-180.png">
+<link rel="icon" sizes="192x192" href="assets/img/favicon-192.png">
+<link rel="icon" sizes="256x256" href="assets/img/favicon-256.png">
+<link rel="icon" sizes="384x384" href="assets/img/favicon-384.png">
+<link rel="icon" sizes="512x512" href="assets/img/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
 </head>
 <body>
   
-<header class="sticky" x-data="{open:false, cart:false}" x-init="$watch('cart', v => document.documentElement.classList.toggle('cart-open', v))">
-  <div class="container-tight" style="display:flex;align-items:center;justify-content:space-between;padding:16px 0">
-    <a href="index.html" style="display:flex;gap:8px;align-items:center;color:#0b1220">
-      <span style="font-size:22px">🫱🏻‍🫲🏽</span>
-      <strong style="font-size:18px">Prannabis Club Germany</strong>
-    </a>
-    <nav class="nav" style="display:flex;gap:20px;align-items:center">
+<header class="site-header sticky" x-data="{cart:false}"
+  x-init="$watch('cart', v => document.documentElement.classList.toggle('cart-open', v))">
+  <div class="container-tight header-grid">
+    <nav class="nav-left">
       <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link" href="shop.html">Club‑Shop</a>
+      <a class="nav-link" href="clubshop.html">Club‑Shop</a>
+      <a class="nav-link" href="shop.html">Produkte</a>
+    </nav>
+    <a class="brand" href="index.html" aria-label="Prannabis">
+      <img src="assets/img/prannabis-logo-green-hq.svg" alt="Prannabis" class="brand-logo" />
+    </a>
+    <nav class="nav-right">
       <a class="nav-link" href="philosophie.html">Philosophie</a>
       <a class="nav-link" href="faq.html">FAQ</a>
       <a class="nav-link" href="kontakt.html">Kontakt</a>
       <button class="btn-cart" @click.prevent="cart=true" aria-haspopup="dialog" aria-controls="cart-drawer">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l3-8H6.4M7 13L5.4 5M7 13l-2 9m12-9l2 9M10 21a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z"/></svg>
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+           d="M3 3h2l.4 2M7 13h10l3-8H6.4M7 13L5.4 5M7 13l-2 7h14l-2-7M7 21a1 1 0 11-2 0 1 1 0 012 0zm12 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+        </svg>
         <span>Warenkorb</span><span class="badge" x-text="(window.cartCount||0)"></span>
       </button>
     </nav>
