@@ -133,3 +133,17 @@ header .container-tight{ min-height:72px; padding-top:10px; padding-bottom:10px 
   header .container-tight{ min-height:60px }
   .brand img{ height:34px }
 }
+
+/* === v11.9: Free-size logo; header auto-height === */
+:root{
+  /* Adjust these two values to resize the logo everywhere */
+  --logo-h: clamp(88px, 12vw, 140px);
+  --logo-h-mobile: clamp(72px, 16vw, 110px);
+}
+header .container-tight{ min-height:unset; padding-top:8px; padding-bottom:8px; align-items:center }
+.brand{ gap:16px }
+.brand img{ height:var(--logo-h); width:auto; image-rendering:-webkit-optimize-contrast }
+.brand-name{ display:none } /* logo stands alone */
+@media (max-width:860px){
+  .brand img{ height:var(--logo-h-mobile) }
+}
