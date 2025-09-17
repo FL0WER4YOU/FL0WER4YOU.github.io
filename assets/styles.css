@@ -253,3 +253,28 @@ header .container-tight{ min-height:64px; padding-top:8px; padding-bottom:8px }
   .brand-name{ display:none }
   .brand-banner img{ height: clamp(90px, 28vw, 160px) }
 }
+
+/* === v12.6: left-aligned brand banner, smoother rendering, bugfixes === */
+.brand img{ display:none }         /* keep header logo hidden to avoid duplication */
+.brand-name{ display:none }        /* hide text label too */
+
+.brand-banner{ margin:0; }
+.brand-banner .inner{
+  max-width:1200px; margin:0 auto;
+  padding:8px clamp(16px,5vw,56px) 0;   /* align with page content */
+  display:flex; align-items:center; justify-content:flex-start;
+  background: transparent;
+}
+.brand-banner img{
+  height: clamp(96px, 13vw, 160px);     /* avoid oversizing to keep PNG smooth */
+  width:auto; max-width:100%;
+  image-rendering:auto;                 /* browser default smoothing */
+  filter: grayscale(1) brightness(.95) contrast(1.25) drop-shadow(0 0 0.5px rgba(0,0,0,.15));
+  transition: filter .2s ease, transform .2s ease;
+}
+.brand-banner img:hover{ filter: grayscale(1) brightness(1.05) contrast(1.25) drop-shadow(0 1px 1px rgba(0,0,0,.2)); transform: translateY(-1px) }
+
+@media (max-width:860px){
+  .brand-banner .inner{ padding:6px clamp(16px,6vw,24px) 0 }
+  .brand-banner img{ height: clamp(80px, 22vw, 120px) }
+}
