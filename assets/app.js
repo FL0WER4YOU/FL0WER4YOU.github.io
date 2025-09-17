@@ -1,14 +1,5 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-  // cart count (placeholder)
-  window.cartCount = 0;
-  // hide badge when zero
-  document.querySelectorAll('.badge').forEach(b => {
-    const val = (window.cartCount||0);
-    b.textContent = val ? String(val) : '';
-  });
-
-  // Typewriter
   const el = document.getElementById('typewriter');
   if(!el) return;
   const words = ["Ehrlich.", "Organisch.", "Handgemacht."];
