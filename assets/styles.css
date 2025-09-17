@@ -175,3 +175,17 @@ header:hover .brand img,
 @media (max-width: 860px){
   .brand img{ transform: scale(var(--logo-scale-mobile)); }
 }
+
+/* === v12.1: Larger logo scales (desktop+mobile) + better grayscale contrast === */
+:root{
+  --logo-h: 40px;            /* layout height (keeps header at 64px) */
+  --logo-scale: 2.15;        /* desktop visual scale */
+  --logo-scale-mobile: 1.95; /* mobile visual scale */
+}
+.brand img{
+  filter: grayscale(1) brightness(.90) contrast(1.35) drop-shadow(0 0 0.5px rgba(0,0,0,.25));
+}
+header:hover .brand img,
+.brand img:focus-visible{
+  filter: grayscale(1) brightness(1.05) contrast(1.35) drop-shadow(0 1px 1px rgba(0,0,0,.25));
+}
