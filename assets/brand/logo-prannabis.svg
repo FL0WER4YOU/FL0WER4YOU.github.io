@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="600" viewBox="0 0 1600 600">
+  <defs>
+    <style>
+      .mark-fill{ fill:#e6e8ee; }
+      .mark-stroke{ stroke:#c8ccd6; stroke-width:16; fill:none; }
+      .text{ fill:#e6e8ee; font-family: 'Manrope', 'DejaVu Sans', Arial, sans-serif; }
+      .title{ font-weight:800; font-size:180px; letter-spacing:4px; }
+      .subtitle{ font-weight:600; font-size:54px; letter-spacing:6px; opacity:.88; }
+    </style>
+  </defs>
+
+  <!-- Icon: circle + three leaves -->
+  <g transform="translate(100,40)">
+    <circle class="mark-stroke" cx="200" cy="200" r="190"/>
+    <!-- center leaf -->
+    <path class="mark-fill" d="M200,90 C240,160 240,260 200,330 C160,260 160,160 200,90 Z"/>
+    <!-- left leaf -->
+    <path class="mark-fill" d="M120,130 C70,190 70,260 140,310 C150,250 160,210 200,170 C170,160 140,150 120,130 Z"/>
+    <!-- right leaf -->
+    <path class="mark-fill" d="M280,130 C330,190 330,260 260,310 C250,250 240,210 200,170 C230,160 260,150 280,130 Z"/>
+    <!-- base shadow -->
+    <ellipse class="mark-fill" cx="200" cy="360" rx="110" ry="16" opacity=".18"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(500,140)" class="text">
+    <text class="title">PRANNABIS</text>
+    <text class="subtitle" x="18" y="210">GAILTALHANF</text>
+  </g>
+</svg>
