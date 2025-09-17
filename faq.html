@@ -24,26 +24,20 @@
 </head>
 <body>
   
-<header class="site-header sticky" x-data="{cart:false}"
-  x-init="$watch('cart', v => document.documentElement.classList.toggle('cart-open', v))">
-  <div class="container-tight header-grid">
-    <nav class="nav-left">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link" href="clubshop.html">Club‑Shop</a>
-      <a class="nav-link" href="shop.html">Produkte</a>
-    </nav>
-    <a class="brand" href="index.html" aria-label="Prannabis">
-      <img src="assets/img/prannabis-logo-green-hq.svg" alt="Prannabis" class="brand-logo" />
+<header class="sticky" x-data="{open:false, cart:false}" x-init="$watch('cart', v => document.documentElement.classList.toggle('cart-open', v))">
+  <div class="container-tight" style="display:flex;align-items:center;justify-content:space-between;padding:16px 0">
+    <a href="index.html" style="display:flex;gap:8px;align-items:center;color:#0b1220">
+      <span style="font-size:22px">🫱🏻‍🫲🏽</span>
+      <strong style="font-size:18px">Prannabis Club Germany</strong>
     </a>
-    <nav class="nav-right">
+    <nav class="nav" style="display:flex;gap:20px;align-items:center">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="shop.html">Club‑Shop</a>
       <a class="nav-link" href="philosophie.html">Philosophie</a>
       <a class="nav-link" href="faq.html">FAQ</a>
       <a class="nav-link" href="kontakt.html">Kontakt</a>
       <button class="btn-cart" @click.prevent="cart=true" aria-haspopup="dialog" aria-controls="cart-drawer">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-           d="M3 3h2l.4 2M7 13h10l3-8H6.4M7 13L5.4 5M7 13l-2 7h14l-2-7M7 21a1 1 0 11-2 0 1 1 0 012 0zm12 0a1 1 0 11-2 0 1 1 0 012 0z"/>
-        </svg>
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l3-8H6.4M7 13L5.4 5M7 13l-2 9m12-9l2 9M10 21a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z"/></svg>
         <span>Warenkorb</span><span class="badge" x-text="(window.cartCount||0)"></span>
       </button>
     </nav>

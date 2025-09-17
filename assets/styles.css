@@ -46,3 +46,22 @@ html.cart-open{overflow:hidden}
 .nav-link{position:relative;font-weight:600;color:var(--ink-light);padding:6px 2px}
 .nav-link::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;background:#0b1220;opacity:0;transform:scaleX(.6);transform-origin:center;transition:opacity .18s,transform .18s}
 .nav-link:hover::after{opacity:1;transform:scaleX(1)}
+
+/* === Emphasize brand logo without increasing header height === */
+.site-header .brand{position:relative;display:inline-flex;align-items:center;justify-content:center;line-height:1}
+.site-header .brand::before{
+  content:'';position:absolute;inset:-2px -8px;border-radius:14px;
+  background:linear-gradient(180deg, rgba(16,185,129,.18), rgba(16,185,129,0));
+  opacity:.18;pointer-events:none;filter:blur(6px);
+}
+.site-header .brand-logo{
+  height:40px;width:auto;display:block;transform:translateZ(0);
+  filter: drop-shadow(0 1px .6px rgba(0,0,0,.12)) drop-shadow(0 6px 14px rgba(16,185,129,.18));
+  transition:transform .16s ease, filter .16s ease;
+}
+.site-header .brand:hover .brand-logo{transform:scale(1.03)}
+/* Dim other nav links slightly so logo pops more (no layout changes) */
+.site-header .nav-left .nav-link, .site-header .nav-right .nav-link{opacity:.85}
+.site-header .nav-left .nav-link:hover, .site-header .nav-right .nav-link:hover{opacity:1}
+/* Keep header height constant */
+.site-header .header-grid{min-height:auto}
