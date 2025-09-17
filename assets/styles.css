@@ -84,3 +84,43 @@ header .container-tight{ min-height:56px; }
 
 /* Buttons look consistent on iOS */
 .btn, .btn-light, .btn-cart{ border-radius:.8rem; font-weight:600; }
+
+/* === v11.6: Bigger, readable brand mark + brand text === */
+.brand{ gap:12px }
+.brand img{ height:36px; width:auto; display:block; image-rendering:-webkit-optimize-contrast;
+  filter: drop-shadow(0 0 1px rgba(0,0,0,.06)); }
+.brand-name{ display:block; font-weight:800; font-size:18px; color:var(--ink-light); letter-spacing:.02em }
+@media (max-width: 860px){
+  .brand img{ height:28px }
+  .brand-name{ display:none }
+}
+
+/* === v11.7: Mobile overflow fixes (iOS/Android) === */
+html, body { width:100%; max-width:100%; overflow-x:hidden; }
+*, *::before, *::after { box-sizing:border-box; }
+.container-tight { width:100%; padding-left:clamp(16px, 5vw, 28px); padding-right:clamp(16px, 5vw, 28px); }
+
+/* Header should never cause horizontal scroll */
+header.sticky { position:sticky; inset:0 auto auto 0; width:100%; }
+header .container-tight { width:100%; overflow-x:hidden; }
+.only-desktop{ display:flex }
+.only-mobile{ display:none }
+
+/* Mobile menu panel spans viewport width without overflow */
+@media (max-width: 860px){
+  .only-desktop{ display:none !important }
+  .only-mobile{ display:flex !important; align-items:center; gap:8px }
+  header .container-tight{ min-height:50px; padding-top:8px; padding-bottom:8px }
+  .brand img{ height:26px }
+  .mobile-menu{ position:fixed; left:0; right:0; top:calc(env(safe-area-inset-top) + 56px);
+    background:var(--light90); border-bottom:1px solid #e5e7eb; box-shadow:0 8px 20px rgba(0,0,0,.08);
+    display:flex; flex-direction:column; gap:6px; padding:10px 16px; z-index:45; width:100%; }
+  .mobile-link{ padding:12px 10px; border-radius:12px; font-weight:600; color:var(--ink-light) }
+  .mobile-link:hover{ background:#eceff3; text-decoration:none }
+  /* Ensure main content cannot extend beyond viewport */
+  main, section { max-width:100%; overflow-x:hidden }
+}
+
+/* Images/SVGs never exceed container */
+img, svg { max-width:100%; height:auto }
+.btn, .btn-light, .btn-cart { -webkit-appearance:none; appearance:none } /* iOS buttons */
