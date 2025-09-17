@@ -65,3 +65,30 @@ html.cart-open{overflow:hidden}
 .site-header .nav-left .nav-link:hover, .site-header .nav-right .nav-link:hover{opacity:1}
 /* Keep header height constant */
 .site-header .header-grid{min-height:auto}
+
+
+/* === Overlap logo into dark section without increasing header height === */
+.site-header{overflow:visible;padding-top:calc(8px + env(safe-area-inset-top, 0px));}
+.site-header .brand{position:relative;z-index:2}
+.site-header .brand-logo{
+  height:40px;width:auto;display:block;transform-origin:center top;
+  transform:translateY(12px) scale(1.35); /* visually bigger + overlaps downward */
+}
+/* subtle halo behind logo to pop on light header + dark body */
+.site-header .brand::after{
+  content:'';position:absolute;left:50%;top:0;transform:translate(-50%, 8px);
+  width:76px;height:76px;border-radius:999px;filter:blur(10px);
+  background:radial-gradient(circle at 50% 50%, rgba(16,185,129,.28), rgba(16,185,129,0) 70%);
+  pointer-events:none;z-index:-1;
+}
+/* ensure main content starts visually under the overlapped logo without layout shift */
+main{position:relative;z-index:1}
+/* Mobile tuning */
+@media (max-width:900px){
+  .site-header .brand-logo{height:34px;transform:translateY(10px) scale(1.28)}
+  .site-header .brand::after{width:64px;height:64px;transform:translate(-50%, 6px)}
+}
+/* iOS Safari sticky safe-area support */
+@supports (-webkit-touch-callout: none){
+  .site-header{padding-top:calc(8px + env(safe-area-inset-top))}
+}
