@@ -196,3 +196,24 @@ header:hover .brand img,
   --logo-scale: 2.5;         /* desktop visual scale */
   --logo-scale-mobile: 2.2;  /* mobile visual scale */
 }
+
+/* === v12.3: header small; big hero logo free-positioned === */
+:root{
+  --logo-h: 32px;            /* header intrinsic height */
+  --logo-scale: 1;           /* no visual overscaling in header */
+  --logo-scale-mobile: 1;
+}
+/* Large hero logo */
+.hero-brand{ display:flex; align-items:center; gap:14px; margin:6px 0 18px 0; }
+.hero-brand img{
+  height: clamp(96px, 20vw, 200px);
+  width: auto;
+  max-width: 100%;
+  filter: grayscale(1) brightness(.92) contrast(1.35);
+  transition: filter .2s ease;
+}
+.hero-brand img:hover{ filter: grayscale(1) brightness(1.05) contrast(1.35); }
+@media (max-width: 860px){
+  .hero-brand{ justify-content:flex-start }
+  .hero-brand img{ height: clamp(84px, 28vw, 150px) }
+}
