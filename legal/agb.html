@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AGB</title>
   <meta name="description" content="Prannabis Club Germany – Living Soil Indoor.">
-  <link rel="stylesheet" href="/assets/styles.css?v=15">
+  <link rel="stylesheet" href="/assets/styles.css?v=17">
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script defer src="/assets/app.js?v=8"></script>
 </head>
@@ -47,7 +47,12 @@
       <a class="mobile-link" href="/kontakt.html" @click="open=false">Kontakt</a>
     </div>
   </div>
-</header>
+\1
+<div class="brand-banner">
+  <div class="inner">
+    <img src="/assets/images/logo-prannabis@1x.png" srcset="/assets/images/logo-prannabis@2x.png 2x" alt="Prannabis">
+  </div>
+</div>
 
 <!-- Cart Drawer -->
 <template x-if="cart">
@@ -73,6 +78,18 @@
   <h1 style="font-size:36px;font-weight:800">AGB</h1>
   <p class="lead" style="max-width:720px;margin-top:14px">Diese Seite nutzt den gleichen Header & Warenkorb‑Drawer. Platzhalter-Inhalt.</p>
 </main>
+
+
+<footer class="site-footer" role="contentinfo">
+  <div class="inner">
+    <div class="copy">© 2025 Prannabis Club Germany</div>
+    <nav class="links" aria-label="Rechtliches">
+      <a href="/legal/agb.html">AGB</a>
+      <a href="/legal/datenschutz.html">Datenschutz</a>
+      <a href="/legal/impressum.html">Impressum</a>
+    </nav>
+  </div>
+</footer>
 
 </body>
 </html>

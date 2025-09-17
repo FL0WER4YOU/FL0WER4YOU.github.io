@@ -217,3 +217,39 @@ header:hover .brand img,
   .hero-brand{ justify-content:flex-start }
   .hero-brand img{ height: clamp(84px, 28vw, 150px) }
 }
+
+/* === v12.4: global footer with Legal links === */
+footer.site-footer{ background:#14161a; color:#e6e8ee; margin-top:48px; border-top:1px solid #2a2d34 }
+footer .inner{ max-width:1200px; margin:0 auto; padding:20px clamp(16px,5vw,56px); display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between }
+footer a{ color:#e6e8ee; text-decoration:none; opacity:.9 }
+footer a:hover{ opacity:1; text-decoration:underline }
+footer .links{ display:flex; gap:18px; flex-wrap:wrap }
+footer .copy{ font-size:.95rem; opacity:.8 }
+@media (max-width:860px){
+  footer .inner{ flex-direction:column; align-items:flex-start; gap:8px }
+  footer .links{ gap:14px }
+}
+
+/* === v12.5: single brand-banner below header, hide header logo === */
+header .container-tight{ min-height:64px; padding-top:8px; padding-bottom:8px }
+.brand img{ display:none }            /* no small logo in header to avoid duplication */
+.brand-name{ display:block; font-weight:800; font-size:16px; color:var(--ink-light) }
+
+.brand-banner{ position:relative; }
+.brand-banner .inner{
+  max-width:1200px; margin:0 auto;
+  padding:8px clamp(16px,5vw,56px) 12px;
+  display:flex; justify-content:center; align-items:center;
+  background: linear-gradient(to bottom, var(--light90), rgba(243,244,246,0));
+}
+.brand-banner img{
+  height: clamp(110px, 22vw, 220px);
+  width:auto; max-width:100%;
+  filter: grayscale(1) brightness(.92) contrast(1.35);
+  transition: filter .2s ease;
+}
+.brand-banner img:hover{ filter: grayscale(1) brightness(1.05) contrast(1.35) }
+@media (max-width:860px){
+  .brand-name{ display:none }
+  .brand-banner img{ height: clamp(90px, 28vw, 160px) }
+}
