@@ -147,3 +147,31 @@ header .container-tight{ min-height:unset; padding-top:8px; padding-bottom:8px; 
 @media (max-width:860px){
   .brand img{ height:var(--logo-h-mobile) }
 }
+
+/* === v12.0: Fixed header height + free-scaling logo (no layout shift) === */
+:root{
+  --logo-h: 36px;              /* intrinsic image height for layout */
+  --logo-scale: 1.6;           /* visual scale desktop */
+  --logo-scale-mobile: 1.4;    /* visual scale mobile */
+}
+header .container-tight{ min-height:64px; padding-top:8px; padding-bottom:8px; align-items:center }
+.brand{ gap:14px; overflow:visible } /* allow scaled logo to overflow without affecting layout */
+.brand img{
+  height:var(--logo-h);
+  width:auto;
+  transform: scale(var(--logo-scale));
+  transform-origin: left center;
+  image-rendering: -webkit-optimize-contrast;
+  filter: grayscale(1) brightness(.82) contrast(1.15);
+  transition: filter .2s ease, transform .2s ease;
+  will-change: transform;
+}
+/* Hover/focus: slightly brighter gray + tiny lift */
+header:hover .brand img,
+.brand img:focus-visible{
+  filter: grayscale(1) brightness(1.02) contrast(1.15);
+  transform: scale(var(--logo-scale)) translateY(-1px);
+}
+@media (max-width: 860px){
+  .brand img{ transform: scale(var(--logo-scale-mobile)); }
+}
